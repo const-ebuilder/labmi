@@ -21,6 +21,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <dropwizard.version>0.9.0-rc4</dropwizard.version>
         <mainClass>com.ebuilder.labmi.labmiApplication</mainClass>
+        <dropwizard.swagger.version>0.6</dropwizard.swagger.version>
+        <metrics.version>3.1.0</metrics.version>
     </properties>
 
     <dependencies>
@@ -28,6 +30,32 @@
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-core</artifactId>
             <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-testing</artifactId>
+            <version>${dropwizard.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-jersey</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-client</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>${metrics.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.federecio</groupId>
+            <artifactId>dropwizard-swagger</artifactId>
+            <version>${dropwizard.swagger.version}</version>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
@@ -41,7 +69,6 @@
         </dependency>
 
     </dependencies>
-
 
     <build>
         <plugins>
@@ -140,6 +167,22 @@
                         </plugin>
                     </reportPlugins>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.jcabi</groupId>
+                <artifactId>jcabi-dynamodb-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>create-tables</goal>
+                        </goals>
+                        <configuration>
+                            <tables>
+                                <table>${basedir}/src/test/dynamodb/foo.json</table>
+                            </tables>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.jcabi</groupId>
