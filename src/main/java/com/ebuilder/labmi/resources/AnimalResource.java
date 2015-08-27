@@ -8,20 +8,26 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import com.google.common.base.Optional;
 
 @Path("/animal")
 @Produces(MediaType.APPLICATION_JSON)
 public class AnimalResource {
-    private final AnimalDAO animalDAO;
+    private final String template;
+    private final String defaultName;
 
-    public AnimalResource(AnimalDAO animalDAO) {
+   /* public AnimalResource(String template, String defaultName, AnimalDAO animalDAO) {
         this.animalDAO = animalDAO;
+    }*/
+
+    public AnimalResource(String template, String defaultName) {
+        this.template = template;
+        this.defaultName = defaultName;
     }
 
     @GET
     @Timed
     public Animal getAnimal(@QueryParam("name") String name) {
-        Animal animal = animalDAO.getByName(name);
-        return animal;
+        return new Animal("test", name, "yellow", "4");
     }
 }

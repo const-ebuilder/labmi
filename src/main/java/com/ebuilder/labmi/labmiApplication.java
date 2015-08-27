@@ -1,5 +1,6 @@
 package com.ebuilder.labmi;
 
+import com.ebuilder.labmi.resources.AnimalResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -24,6 +25,8 @@ public class labmiApplication extends Application<labmiConfiguration> {
     public void run(final labmiConfiguration configuration,
                     final Environment environment) {
         // TODO: implement application
+        final AnimalResource resource = new AnimalResource(configuration.getTemplate(),configuration.getDefaultName());
+        environment.jersey().register(resource);
     }
 
 }
