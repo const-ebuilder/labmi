@@ -168,38 +168,7 @@
                     </reportPlugins>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>com.jcabi</groupId>
-                <artifactId>jcabi-dynamodb-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>create-tables</goal>
-                        </goals>
-                        <configuration>
-                            <tables>
-                                <table>${basedir}/src/test/dynamodb/foo.json</table>
-                            </tables>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.jcabi</groupId>
-                <artifactId>jcabi-dynamodb-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>start</goal>
-                            <goal>stop</goal>
-                        </goals>
-                        <configuration>
-                            <port>10500</port>
-                            <dist>${project.build.directory}/dynamodb-dist</dist>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+
         </plugins>
     </build>
 </project>
