@@ -22,7 +22,7 @@ public class AnimalResource {
     @GET
     @Timed
     public Animal getAnimal(@QueryParam("name") String name) {
-        return new Animal("test", name, "yellow", "4");
+        return new Animal();
     }
 
     @POST

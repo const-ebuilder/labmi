@@ -15,7 +15,7 @@ public class AnimalDAO extends DynamoDAO {
     }
 
     public Animal save(Animal animal) {
-        animal.setId(UUID.randomUUID().toString());
+//        animal.setId(UUID.randomUUID().toString());
         dynamoDBMapper.save(animal);
         return animal;
     }
