@@ -12,14 +12,25 @@ public class labmiConfiguration extends Configuration {
     @NotEmpty
     private String defaultName = "Stranger";
 
+    @NotEmpty
+    private String credentialGroup;
+
+    @NotEmpty
+    private String regionCode;
+
     @JsonProperty
     public String getTemplate() {
         return template;
     }
 
     @JsonProperty
-    public void setTemplate(String template) {
-        this.template = template;
+    public String getRegionCode() {
+        return regionCode;
+    }
+
+    @JsonProperty
+    public String getCredentialGroup() {
+        return credentialGroup;
     }
 
     @JsonProperty
@@ -27,8 +38,4 @@ public class labmiConfiguration extends Configuration {
         return defaultName;
     }
 
-    @JsonProperty
-    public void setDefaultName(String name) {
-        this.defaultName = name;
-    }
 }

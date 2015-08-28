@@ -1,2 +1,4 @@
 template: The name of animal is %s!
 defaultName: Cow
+credentialGroup: default
+regionCode: eu-west-1

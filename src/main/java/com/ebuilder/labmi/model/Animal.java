@@ -64,9 +64,13 @@ public class Animal {
 
     @JsonProperty
     @XmlElement(name = "numberOfLegs")
-    @ApiModelProperty(value = "Numbe of legs", required = true)
+    @ApiModelProperty(value = "Number of legs", required = true)
     public String getNumberOfLegs() {
         return numberOfLegs;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }
